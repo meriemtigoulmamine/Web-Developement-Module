@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>International Mobility</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <header>
+        <a href="#accueil">
+            <h3>International Mobility</h3>
+        </a>
+        University | Research | Mobility
+        Researcher Space
+    </header>
+
+    <navbar>
+        <ul>
+            <li><a href="#Home">Home</a></li>
+
+            <li>
+                <a href="Calls">Calls &#9662;</a>
+                <ul>
+                    <li><a href="#Horizons">Horizons</a></li>
+                    <li><a href="#Erasmus">Erasmus</a></li>
+                    <li><a href="#Prima">Prima</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="project">Project&#9662;</a>
+                <ul>
+                    <li><a href="#horizon">Horizon</a></li>
+                    <li><a href="#CBHE">CBHE</a></li>
+                    <li><a href="#PNR">PNR</a></li>
+                    <li><a href="#CNEPRU">CNEPRU</a></li>
+                </ul>
+            </li>
+
+
+            <li>
+                <a href="#mobility">Mobility&#9662;</a>
+                <ul>
+                    <li><a href="national">National</a></li>
+                    <li><a href="#erasmus">Erasmus</a></li>
+                    <li><a href="exchange">Exchange</a></li>
+                </ul>
+            </li>
+
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </navbar>
+
+
+    <section>
+
+        <!-- la balise section sert a regrouper des elements qui correspend a une meme partie ou un meme sujet-->
+        <h1>International Cooperation Projects Tracking Portal</h1>
+        <h2>Calls, projects and mobility for university researchers.</h3>
+            <p>Turn your ideas into impactful international collaborations. Submit project proposals, share your
+                drafts,
+                explore support opportunities, and track your progress every step of the way all in one place.
+            </p>
+            <img src="assets/background.png" alt="background">
+
+    </section>
+
+
+    <section>
+        <h2>Project Holder Journey</h2>
+        <p>Discover the key steps in the process, from submitting your initial project idea to final submission.</p>
+        <video src="assets/parcours-porteur-de-projet.mp4" controls preload="metadata" width="100%"></video>
+    </section>
+
+    <section>
+        <h1>Project Suggestion</h1>
+        <form method="post" encrypte="multipart/form-data">
+            <fieldset>
+                <legend>Info about the project</legend>
+                <label for="title">Project Title*</label>
+                <input name="title" required type="text"
+                    placeholder="Ex :Intelligence artificielle et systèmes intelligents pour l’aide à la décision">
+                <label for="duration">Duration (months )</label>
+                <input name="duration" type="number" min="1" placeholder="Ex: 12">
+                <label for="description">Description*</label>
+                <textarea name="description" required rows="4"
+                    placeholder="Objectifs, context,expected results..."></textarea>
+                <label for="budget">Estimated Budget (DA) </label>
+                <input name="budget" min="0" type="text" placeholder="Ex : 1500000 ">
+            </fieldset>
+            <fieldset>
+                <legend>Programs and Calls</legend>
+                <label for="program">Program*</label>
+                <select name="program" required>
+                    <option value="">-- Select a program --</option>
+                    <option>Horizon</option>
+                    <option>CBHE</option>
+                    <option>PNR</option>
+                    <option>CNEPRU</option>
+                    <option>Erasmus</option>
+                    <option>Prima</option>
+                </select>
+                <label for="call">Calls*</label>
+                <select name="calls" required>
+                    <option value="">-- Select Call --</option>
+                    <option>Horizons</option>
+                    <option>Erasmus</option>
+                    <option>Prima</option>
+                </select>
+            </fieldset>
+            <fieldset>
+                <legend>Partners</legend>
+                <label for="institution">Institution</label>
+                <input name="institution" type="text" placeholder="Ex : LMCS">
+                <label for="country">Country</label>
+                <input name="country" type="text" placeholder="Ex : France">
+                <label for="contact">Contact (e-mail)</label>
+                <input name="contact" placeholder="partner@gmail.com">
+            </fieldset>
+            <fieldset>
+                <legend>Support Needs</legend>
+                <label><input type="checkbox" name="needs" value="writing"> Help with writing
+                    proposal</label>
+                <label><input type="checkbox" name="needs" value="budget"> Budget preparation</label>
+                <label><input type="checkbox" name="needs" value="legal"> Legal support</label>
+                <label><input type="checkbox" name="needs" value="partners"> Partner search</label>
+                <label for="other">Additional details</label>
+                <textarea name="other" rows="3"></textarea>
+            </fieldset>
+            <fieldset>
+                <legend>Documents</legend>
+                <label for="projectdoc">Project Draft*</label>
+                <input type="file" accept=".pdf .docx .doc">
+                <label for="otherdoc">Other Documents</label>
+                <input type="file" accept=".pdf .docx .doc">
+            </fieldset>
+
+            <input type="submit" value="Submit" name="action">
+            <input type="submit" value="Draft" name="action" formnovalidate>
+        </form>
+    </section>
+
+    <section>
+        <h3>Project Members</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">Institution</th>
+                    <th scope="col">Department/Laboratory</th>
+                    <th scope="col">Full Name</th>
+                    <th scope="col">Profession</th>
+                    <th scope="col">Role</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td rowspan="2">ESI</td>
+                    <td rowspan="2">LMCS</td>
+                    <td>Full Name</td>
+                    <td>Professor</td>
+                    <td>Project Manager</td>
+                </tr>
+                <tr>
+                    <td>Full Name</td>
+                    <td>Researcher</td>
+                    <td>Coordinator</td>
+                </tr>
+                <tr>
+                    <td>ESTIN</td>
+                    <td>LITAN</td>
+                    <td>Full Name</td>
+                    <td>MC classe B</td>
+                    <td>Developer</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+
+
+    <section>
+        <h2>About Us</h2>
+
+        <p>
+            Our portal provides a centralized space for university researchers
+            to explore international cooperation opportunities, develop project
+            proposals, request guidance, and track their progress from initial
+            idea to final submission.
+        </p>
+
+    </section>
+
+    <footer>
+        <h3>International Mobility</h3>
+        <p>Directorate of International Relations</p>
+        Contact
+        <a href="mailto:internationale_relations@gmail.com">internationale_relations@gmail.com</a>
+        <small>&copy; 2026 University &mdash;International Mobility</small>
+    </footer>
+
+
+
+
+
+
+
+
+</body>
+
+</html>
