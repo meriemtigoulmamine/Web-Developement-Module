@@ -71,16 +71,6 @@
     font-size: 1.05rem;
     color: #23282d;
 }
-
-.hero-container img {
-    display: block;
-    width: 100vw;
-    max-width: 100vw;
-    margin-left: calc(50% - 50vw);
-    height: auto;
-    border-radius: 0;
-}
-
 .videopresentationsection {
     max-width: 1000px;
     margin: 0 auto;
@@ -371,4 +361,105 @@ footer a:hover {
 
 .dropdown a:hover {
     background-color: #082c47;
+}
+
+.diapo-container {
+    width: 90%;
+    margin: 0 auto;
+    overflow: hidden;
+    background: #000;
+}
+
+.diapo {
+    display: flex;
+    width: 800%;
+    background: #000;
+    animation-name: defilement;
+    animation-duration: 40s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.diapo img {
+    flex: 0 0 12.5%;
+    box-sizing: border-box;
+    margin-right: 1%;
+    background: #000;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+}
+
+@keyframes defilement {
+    from { transform: translateX(-50%); }
+    to   { transform: translateX(0); }
+}
+
+.diapo-container:hover .diapo {
+    animation-play-state: paused;
+}
+
+@media (max-width: 768px) {
+    .topbar {
+        flex-direction: column;
+        gap: 2%;
+        text-align: center;
+    }
+
+    .menu {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .dropdown {
+        position: static;
+    }
+
+    .hero-container {
+        flex-direction: column;
+        padding: 0 5%;
+    }
+
+    .diapo-container {
+        margin-top: 4%;
+    }
+
+    .diapo {
+        animation-duration: 25s;
+    }
+
+    .form-container,
+    .projectmembers,
+    .container {
+        width: 100%;
+        padding: 0 5%;
+        box-sizing: border-box;
+    }
+
+    input,
+    select,
+    textarea {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .projectmembers {
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 100%;
+        width: 100%;
+    }
+
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 2%;
+    }
+
+    video {
+        max-width: 100%;
+        height: auto;
+    }
 }

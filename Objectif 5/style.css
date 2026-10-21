@@ -1,0 +1,465 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    background-color: #082c47;
+}
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 2rem;
+    background-color: #082c47;
+    color: white;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    gap: 0.75rem;
+}
+
+.icon-logo {
+    height: 50px;
+    width: auto;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+#researcher-space {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.principal-title {
+    font-size: 2.5rem;
+    font-family: fantasy;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+    color: #082c47;
+}
+
+.hero-caption {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-container {
+    background-color: #f2f4f7;
+    padding: 3rem 2rem;
+}
+
+.hero-caption h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-align: center;
+    color: #e67e22;
+}
+
+.hero-caption p {
+    font-size: 1.05rem;
+    color: #23282d;
+}
+.videopresentationsection {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+.videopresentationsection h2 {
+    font-size: 2rem;
+    color: #082c47;
+    margin-bottom: 0.5rem;
+}
+
+.videopresentationsection p {
+    margin-bottom: 1.5rem;
+}
+
+.videopresentationsection video {
+    border-radius: 8px;
+}
+
+.form-section {
+    background-color: #f2f4f7;
+    padding: 3rem 2rem;
+}
+
+.form-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.form-container > h1 {
+    text-align: center;
+    color: #082c47;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+fieldset {
+    border: 1px dashed #b5bcc4;
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+legend {
+    padding: 0 0.5rem;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: #0b3d62;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+fieldset label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+}
+
+input,
+select,
+textarea {
+    font: inherit;
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    color: #23282d;
+    background-color: #ffffff;
+    border: 1px solid #b5bcc4;
+    border-radius: 6px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #0b3d62;
+}
+
+input[type="checkbox"] {
+    width: auto;
+    margin-right: 0.5rem;
+}
+
+.req {
+    color: #c0392b;
+    font-weight: 700;
+    margin-left: 0.15rem;
+}
+
+.buttons {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.buttons input[type="submit"] {
+    width: auto;
+    cursor: pointer;
+    font-weight: 700;
+    padding: 0.7rem 1.6rem;
+    border: none;
+    border-radius: 6px;
+    color: #ffffff;
+    transition: opacity 0.2s ease;
+}
+
+.buttons input[type="submit"]:not([formnovalidate]) {
+    background-color: #0b3d62;
+}
+
+.buttons input[type="submit"][formnovalidate] {
+    background-color: #e67e22;
+}
+
+.buttons input[type="submit"]:hover {
+    opacity: 0.88;
+}
+
+.projectmembers {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+.projectmembers h3 {
+    text-align: center;
+    font-size: 1.75rem;
+    color: #082c47;
+    margin-bottom: 1.25rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+table,
+th,
+td {
+    border: 1px dashed #b5bcc4;
+}
+
+th,
+td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+}
+
+thead th{
+    background-color: #e0e0e0;
+    color: #082c47;
+    font-weight: 700;
+}
+
+
+tbody tr:nth-child(even) {
+    background-color:#e0e0e0;
+}
+
+.institution{
+    background-color:#e0e0e0 ;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+.container > h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #082c47;
+    margin-bottom: 1rem;
+}
+
+.container > p {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+footer {
+    background-color: #082c47;
+    color: #ffffff;
+}
+
+footer .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding: 2rem;
+}
+
+footer h3 {
+    color: #ffffff;
+}
+
+footer .contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+footer a {
+    color: #e67e22;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.navbar-section {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #0b3d62;
+}
+
+.navbar .menu{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.menu > li {
+    position:relative;
+}
+
+.menu > li > a {
+    display: block;
+    padding: 1rem 1.25rem;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: background-color 0.2s ease;
+}
+
+.menu > li > a:hover {
+    background-color: #0d5568;
+}
+
+.menu .arrow-icon {
+    font-size: 0.7rem;
+    margin-left: 0.35rem;
+}
+
+.dropdown{
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 200px;
+    list-style: none;
+    background-color: #0d5568;
+    z-index: 1000;
+}
+
+.sub-menu:hover .dropdown {
+    display: block;
+}
+
+.dropdown a {
+    display: block;
+    padding: 0.7rem 1.25rem;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.dropdown a:hover {
+    background-color: #082c47;
+}
+
+.diapo-container {
+    width: 90%;
+    margin: 0 auto;
+    overflow: hidden;
+    background: #000;
+}
+
+.diapo {
+    display: flex;
+    width: 800%;
+    background: #000;
+    animation-name: defilement;
+    animation-duration: 40s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.diapo img {
+    flex: 0 0 12.5%;
+    box-sizing: border-box;
+    margin-right: 1%;
+    background: #000;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+}
+
+@keyframes defilement {
+    from { transform: translateX(-50%); }
+    to   { transform: translateX(0); }
+}
+
+.diapo-container:hover .diapo {
+    animation-play-state: paused;
+}
+
+@media (max-width: 768px) {
+    .topbar {
+        flex-direction: column;
+        gap: 2%;
+        text-align: center;
+    }
+
+    .menu {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .dropdown {
+        position: static;
+    }
+
+    .hero-container {
+        flex-direction: column;
+        padding: 0 5%;
+    }
+
+    .diapo-container {
+        margin-top: 4%;
+    }
+
+    .diapo {
+        animation-duration: 25s;
+    }
+
+    .form-container,
+    .projectmembers,
+    .container {
+        width: 100%;
+        padding: 0 5%;
+        box-sizing: border-box;
+    }
+
+    input,
+    select,
+    textarea {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .projectmembers {
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 100%;
+        width: 100%;
+    }
+
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 2%;
+    }
+
+    video {
+        max-width: 100%;
+        height: auto;
+    }
+}
