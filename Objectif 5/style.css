@@ -377,7 +377,7 @@ footer a:hover {
     align-items: center;
     width: 500%;
     background: #000;
-    animation: defilement 15s linear infinite;
+    animation: defilement 15s  infinite;
 }
 
 .diapo img {
@@ -390,6 +390,8 @@ footer a:hover {
     aspect-ratio: 16 / 9;
     object-fit: contain;
 }
+
+
 
 @keyframes defilement {
     0%, 20% {
