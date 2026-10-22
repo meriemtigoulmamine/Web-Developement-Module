@@ -53,11 +53,12 @@
     text-align: center;
     display: flex;
     flex-direction: column;
+    padding: 0 5%;
 }
 
 .hero-container {
     background-color: #f2f4f7;
-    padding: 3rem 2rem;
+    padding: 3rem 0;
 }
 
 .hero-caption h2 {
@@ -71,6 +72,7 @@
     font-size: 1.05rem;
     color: #23282d;
 }
+
 .videopresentationsection {
     max-width: 1000px;
     margin: 0 auto;
@@ -211,6 +213,37 @@ input[type="checkbox"] {
     margin-bottom: 1.25rem;
 }
 
+.add-member {
+    background-color: #f8fafc;
+    border: 1px dashed #b5bcc4;
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.75rem;
+}
+
+.add-member h4 {
+    color: #0b3d62;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.member-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem 1.25rem;
+}
+
+.member-grid .field {
+    margin-bottom: 0;
+}
+
+.form-error {
+    color: #c0392b;
+    font-weight: 600;
+    margin-top: 0.75rem;
+    min-height: 1.2rem;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -237,11 +270,25 @@ thead th{
 
 
 tbody tr:nth-child(even) {
-    background-color:#e0e0e0;
+    background-color:#f3f4f6;
 }
 
 .institution{
     background-color:#e0e0e0 ;
+}
+
+.delete-btn {
+    cursor: pointer;
+    border: none;
+    background-color: #c0392b;
+    color: #ffffff;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.delete-btn:hover {
+    opacity: 0.9;
 }
 
 .container {
@@ -363,6 +410,7 @@ footer a:hover {
     background-color: #082c47;
 }
 
+
 .diapo-container {
     width: 90%;
     margin: 0 auto;
@@ -372,27 +420,35 @@ footer a:hover {
 
 .diapo {
     display: flex;
-    width: 800%;
+    align-items: center;
+    width: 408%;
     background: #000;
     animation-name: defilement;
-    animation-duration: 40s;
+    animation-duration: 15s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
 
 .diapo img {
-    flex: 0 0 12.5%;
+    flex: 0 0 24.5%;
+    min-width: 0;
     box-sizing: border-box;
-    margin-right: 1%;
+    margin-right: 0.5%;
     background: #000;
     aspect-ratio: 16 / 9;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
 }
 
 @keyframes defilement {
-    from { transform: translateX(-50%); }
-    to   { transform: translateX(0); }
+    0% { transform: translateX(0); }
+    20% { transform: translateX(0); }
+    26.67% { transform: translateX(-25%); }
+    46.67% { transform: translateX(-25%); }
+    53.33% { transform: translateX(-50%); }
+    73.33% { transform: translateX(-50%); }
+    80% { transform: translateX(-75%); }
+    100% { transform: translateX(-75%); }
 }
 
 .diapo-container:hover .diapo {
@@ -402,8 +458,24 @@ footer a:hover {
 @media (max-width: 768px) {
     .topbar {
         flex-direction: column;
-        gap: 2%;
+        gap: 1rem;
         text-align: center;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    .principal-title {
+        font-size: 1.6rem;
+    }
+
+    .hero-caption h2 {
+        font-size: 1.1rem;
+    }
+
+    .hero-container {
+        padding: 2rem 0;
     }
 
     .menu {
@@ -411,29 +483,37 @@ footer a:hover {
         padding: 0;
     }
 
-    .dropdown {
-        position: static;
+    .menu > li > a {
+        text-align: center;
     }
 
-    .hero-container {
-        flex-direction: column;
-        padding: 0 5%;
+    .dropdown {
+        position: static;
+        min-width: 0;
     }
 
     .diapo-container {
-        margin-top: 4%;
+        width: 96%;
+        margin-top: 2rem;
     }
 
     .diapo {
-        animation-duration: 25s;
+        animation-duration: 18s;
     }
 
+    .videopresentationsection,
     .form-container,
     .projectmembers,
     .container {
         width: 100%;
-        padding: 0 5%;
+        max-width: 100%;
+        padding: 2rem 5%;
         box-sizing: border-box;
+    }
+
+    .videopresentationsection video {
+        max-width: 100%;
+        height: auto;
     }
 
     input,
@@ -441,6 +521,15 @@ footer a:hover {
     textarea {
         width: 100%;
         box-sizing: border-box;
+    }
+
+    .buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .buttons input[type="submit"] {
+        width: 100%;
     }
 
     .projectmembers {
@@ -452,14 +541,8 @@ footer a:hover {
         width: 100%;
     }
 
-    .buttons {
-        display: flex;
+    footer .container {
         flex-direction: column;
-        gap: 2%;
-    }
-
-    video {
-        max-width: 100%;
-        height: auto;
+        text-align: center;
     }
 }

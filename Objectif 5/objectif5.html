@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html>
 
 <head>
     <title>International Mobility</title>
@@ -74,19 +74,13 @@
                         explore support opportunities, and track your progress every step of the way all in one place.
                     </p>
             </div>
-            
             <div class="diapo-container">
-                    <div class="diapo">
-                        <img src="assets/slide1.png" alt="mobility">
-                        <img src="assets/slide2.png" alt="mobility">
-                        <img src="assets/slide3.png" alt="mobility">
-                        <img src="assets/slide4.png" alt="mobility">
-                        <img src="assets/slide1.png" alt="mobility">
-                        <img src="assets/slide2.png" alt="mobility">
-                        <img src="assets/slide3.png" alt="mobility">
-                        <img src="assets/slide4.png" alt="mobility">
-                    </div>
-               
+                <div class="diapo">
+                    <img src="assets/slide1.png" alt="slide 1">
+                    <img src="assets/slide2.png" alt="slide 2">
+                    <img src="assets/slide3.png" alt="slide 3">
+                    <img src="assets/slide4.png" alt="slide 4">
+                </div>
             </div>
 
         </div>
@@ -215,7 +209,39 @@
         <div>
             <h3>Project Members</h3>
 
-            <table>
+            <div class="add-member">
+                <h4>Add a new member</h4>
+                <form id="addMemberForm" novalidate>
+                    <div class="member-grid">
+                        <div class="field">
+                            <label for="memberInstitution">Institution<span class="req">*</span></label>
+                            <input id="memberInstitution" name="institution" type="text" required placeholder="Ex : ESI">
+                        </div>
+                        <div class="field">
+                            <label for="memberLab">Department/Laboratory<span class="req">*</span></label>
+                            <input id="memberLab" name="lab" type="text" required placeholder="Ex : LMCS">
+                        </div>
+                        <div class="field">
+                            <label for="memberName">Full Name<span class="req">*</span></label>
+                            <input id="memberName" name="fullname" type="text" required placeholder="Ex : Meriem Tigoulmamine">
+                        </div>
+                        <div class="field">
+                            <label for="memberProf">Profession<span class="req">*</span></label>
+                            <input id="memberProf" name="profession" type="text" required placeholder="Ex : Professor">
+                        </div>
+                        <div class="field">
+                            <label for="memberRole">Role<span class="req">*</span></label>
+                            <input id="memberRole" name="role" type="text" required placeholder="Ex : Project Manager">
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <input type="submit" value="Add to table">
+                    </div>
+                    <p class="form-error" id="memberFormError" aria-live="polite"></p>
+                </form>
+            </div>
+
+            <table id="membersTable">
                 <thead>
                     <tr>
                         <th scope="col">Institution</th>
@@ -223,29 +249,33 @@
                         <th scope="col">Full Name</th>
                         <th scope="col">Profession</th>
                         <th scope="col">Role</th>
+                        <th scope="col">Action</th>
                     </tr>
                 </thead>
 
-                <tbody>
-                    <tr>
+                <tbody id="membersBody">
+                    <tr data-group="ESI">
                         <td rowspan="2" class="institution">ESI</td>
                         <td>LMCS</td>
                         <td>Full Name</td>
                         <td>Professor</td>
                         <td>Project Manager</td>
+                        <td><button type="button" class="delete-btn">Delete</button></td>
                     </tr>
-                    <tr>
+                    <tr data-group="ESI">
                         <td>LCSI</td>
                         <td>Full Name</td>
                         <td>Researcher</td>
                         <td>Coordinator</td>
+                        <td><button type="button" class="delete-btn">Delete</button></td>
                     </tr>
-                    <tr>
-                        <td   class="institution">ESTIN</td>
+                    <tr data-group="ESTIN">
+                        <td class="institution">ESTIN</td>
                         <td>LITAN</td>
                         <td>Full Name</td>
                         <td>MC classe B</td>
                         <td>Developer</td>
+                        <td><button type="button" class="delete-btn">Delete</button></td>
                     </tr>
                 </tbody>
             </table>
@@ -284,6 +314,8 @@
 
 
     </footer>
+
+    <script src="script.js"></script>
 
 
 

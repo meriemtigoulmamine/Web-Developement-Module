@@ -53,11 +53,12 @@
     text-align: center;
     display: flex;
     flex-direction: column;
+    padding: 0 5%;
 }
 
 .hero-container {
     background-color: #f2f4f7;
-    padding: 3rem 2rem;
+    padding: 3rem 0;
 }
 
 .hero-caption h2 {
@@ -71,6 +72,7 @@
     font-size: 1.05rem;
     color: #23282d;
 }
+
 .videopresentationsection {
     max-width: 1000px;
     margin: 0 auto;
@@ -372,38 +374,71 @@ footer a:hover {
 
 .diapo {
     display: flex;
-    width: 800%;
+    align-items: center;
+    width: 500%;
     background: #000;
-    animation-name: defilement;
-    animation-duration: 40s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
+    animation: defilement 15s linear infinite;
 }
 
 .diapo img {
-    flex: 0 0 12.5%;
+    flex: 0 0 18%;
+    min-width: 0;
     box-sizing: border-box;
-    margin-right: 1%;
+    margin-right: 2%;
     background: #000;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
     display: block;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
 }
 
 @keyframes defilement {
-    from { transform: translateX(-50%); }
-    to   { transform: translateX(0); }
+    0%, 20% {
+        transform: translateX(0);
+    }
+
+    25%, 40% {
+        transform: translateX(-20%);
+    }
+
+    45%, 60% {
+        transform: translateX(-40%);
+    }
+
+    65%, 80% {
+        transform: translateX(-60%);
+    }
+
+    100% {
+        transform: translateX(-80%);
+    }
 }
 
 .diapo-container:hover .diapo {
     animation-play-state: paused;
 }
 
+
 @media (max-width: 768px) {
     .topbar {
         flex-direction: column;
-        gap: 2%;
+        gap: 1rem;
         text-align: center;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    .principal-title {
+        font-size: 1.6rem;
+    }
+
+    .hero-caption h2 {
+        font-size: 1.1rem;
+    }
+
+    .hero-container {
+        padding: 2rem 0;
     }
 
     .menu {
@@ -411,29 +446,37 @@ footer a:hover {
         padding: 0;
     }
 
-    .dropdown {
-        position: static;
+    .menu > li > a {
+        text-align: center;
     }
 
-    .hero-container {
-        flex-direction: column;
-        padding: 0 5%;
+    .dropdown {
+        position: static;
+        min-width: 0;
     }
 
     .diapo-container {
-        margin-top: 4%;
+        width: 96%;
+        margin-top: 2rem;
     }
 
     .diapo {
-        animation-duration: 25s;
+        animation-duration: 18s;
     }
 
+    .videopresentationsection,
     .form-container,
     .projectmembers,
     .container {
         width: 100%;
-        padding: 0 5%;
+        max-width: 100%;
+        padding: 2rem 5%;
         box-sizing: border-box;
+    }
+
+    .videopresentationsection video {
+        max-width: 100%;
+        height: auto;
     }
 
     input,
@@ -441,6 +484,15 @@ footer a:hover {
     textarea {
         width: 100%;
         box-sizing: border-box;
+    }
+
+    .buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .buttons input[type="submit"] {
+        width: 100%;
     }
 
     .projectmembers {
@@ -452,14 +504,8 @@ footer a:hover {
         width: 100%;
     }
 
-    .buttons {
-        display: flex;
+    footer .container {
         flex-direction: column;
-        gap: 2%;
-    }
-
-    video {
-        max-width: 100%;
-        height: auto;
+        text-align: center;
     }
 }
