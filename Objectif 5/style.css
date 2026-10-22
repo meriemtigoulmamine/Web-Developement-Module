@@ -213,37 +213,6 @@ input[type="checkbox"] {
     margin-bottom: 1.25rem;
 }
 
-.add-member {
-    background-color: #f8fafc;
-    border: 1px dashed #b5bcc4;
-    border-radius: 10px;
-    padding: 1.25rem 1.5rem;
-    margin-bottom: 1.75rem;
-}
-
-.add-member h4 {
-    color: #0b3d62;
-    margin-bottom: 1rem;
-    font-size: 1.2rem;
-}
-
-.member-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1rem 1.25rem;
-}
-
-.member-grid .field {
-    margin-bottom: 0;
-}
-
-.form-error {
-    color: #c0392b;
-    font-weight: 600;
-    margin-top: 0.75rem;
-    min-height: 1.2rem;
-}
-
 table {
     width: 100%;
     border-collapse: collapse;
@@ -270,25 +239,11 @@ thead th{
 
 
 tbody tr:nth-child(even) {
-    background-color:#f3f4f6;
+    background-color:#e0e0e0;
 }
 
 .institution{
     background-color:#e0e0e0 ;
-}
-
-.delete-btn {
-    cursor: pointer;
-    border: none;
-    background-color: #c0392b;
-    color: #ffffff;
-    padding: 0.4rem 0.8rem;
-    border-radius: 6px;
-    font-weight: 600;
-}
-
-.delete-btn:hover {
-    opacity: 0.9;
 }
 
 .container {
@@ -410,7 +365,6 @@ footer a:hover {
     background-color: #082c47;
 }
 
-
 .diapo-container {
     width: 90%;
     margin: 0 auto;
@@ -421,39 +375,48 @@ footer a:hover {
 .diapo {
     display: flex;
     align-items: center;
-    width: 408%;
+    width: 500%;
     background: #000;
-    animation-name: defilement;
-    animation-duration: 15s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
+    animation: defilement 15s linear infinite;
 }
 
 .diapo img {
-    flex: 0 0 24.5%;
+    flex: 0 0 18%;
     min-width: 0;
     box-sizing: border-box;
-    margin-right: 0.5%;
+    margin-right: 2%;
     background: #000;
+    display: block;
     aspect-ratio: 16 / 9;
     object-fit: contain;
-    display: block;
 }
 
 @keyframes defilement {
-    0% { transform: translateX(0); }
-    20% { transform: translateX(0); }
-    26.67% { transform: translateX(-25%); }
-    46.67% { transform: translateX(-25%); }
-    53.33% { transform: translateX(-50%); }
-    73.33% { transform: translateX(-50%); }
-    80% { transform: translateX(-75%); }
-    100% { transform: translateX(-75%); }
+    0%, 20% {
+        transform: translateX(0);
+    }
+
+    25%, 40% {
+        transform: translateX(-20%);
+    }
+
+    45%, 60% {
+        transform: translateX(-40%);
+    }
+
+    65%, 80% {
+        transform: translateX(-60%);
+    }
+
+    100% {
+        transform: translateX(-80%);
+    }
 }
 
 .diapo-container:hover .diapo {
     animation-play-state: paused;
 }
+
 
 @media (max-width: 768px) {
     .topbar {
