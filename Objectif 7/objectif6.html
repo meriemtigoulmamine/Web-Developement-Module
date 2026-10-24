@@ -1,0 +1,332 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>International Mobility</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="topbar">
+                <a class="brand" href="#home">
+                    <img class="icon-logo" src="assets/logo.png" alt="University logo">
+
+                    <h3 class="logo">International Mobility</h3>
+                </a>
+                <div>University | Research | Mobility</div>
+                <div id="researcher-space">
+                    Researcher Space
+                </div>
+        </div>
+    </header>
+
+    <nav class="navbar-section">
+        <div class="navbar">
+            <ul class="menu">
+                <li><a href="#Home">Home</a></li>
+
+                <li class="sub-menu">
+                    <a href="Calls">Calls <span class="arrow-icon">&#9662;</span></a>
+                    <ul class="dropdown">
+                        <li><a href="#Horizons">Horizons</a></li>
+                        <li><a href="#Erasmus">Erasmus</a></li>
+                        <li><a href="#Prima">Prima</a></li>
+                    </ul>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="project">Project<span class="arrow-icon">&#9662;</span></a>
+                    <ul class="dropdown">
+                        <li><a href="#horizon">Horizon</a></li>
+                        <li><a href="#CBHE">CBHE</a></li>
+                        <li><a href="#PNR">PNR</a></li>
+                        <li><a href="#CNEPRU">CNEPRU</a></li>
+                    </ul>
+                </li>
+
+
+                <li class="sub-menu">
+                    <a href="#mobility">Mobility<span class="arrow-icon">&#9662;</span></a>
+                    <ul class="dropdown">
+                        <li><a href="national">National</a></li>
+                        <li><a href="#erasmus">Erasmus</a></li>
+                        <li><a href="exchange">Exchange</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <section class="hero-section">
+
+        <div class="hero-container">
+            <div class="hero-caption">
+                <h1 class="principal-title">International Cooperation Projects Tracking Portal</h1>
+                <h2>Calls, projects and mobility for university researchers.</h2>
+                    <p>Turn your ideas into impactful international collaborations. Submit project proposals, share your
+                        drafts,
+                        explore support opportunities, and track your progress every step of the way all in one place.
+                    </p>
+            </div>
+            <div class="diapo-container">
+                <div class="diapo">
+                    <img src="assets/slide1.png" alt="slide 1">
+                    <img src="assets/slide2.png" alt="slide 2">
+                    <img src="assets/slide3.png" alt="slide 3">
+                    <img src="assets/slide4.png" alt="slide 4">
+                    <img src="assets/slide1.png" alt="slide 4">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section class="videopresentationsection">
+        <div>
+            <h2>Project Holder Journey</h2>
+            <p>Discover the key steps in the process, from submitting your initial project idea to final submission.</p>
+            <video src="assets/parcours-porteur-de-projet.mp4" controls preload="metadata" width="100%"></video>
+        </div>
+    </section>
+
+    <section class="form-section">
+        <div class="form-container">
+            <h1>Project Suggestion</h1>
+            <form method="post" encrypte="multipart/form-data">
+                <div>
+                    <fieldset class="project-info">
+                        <legend>Info about the project</legend>
+                        <div>
+                            <div class="field">
+                                <label for="title">Project Title<span class="req">*</span></label>
+                                <input id="title" name="title" required type="text"
+                                    placeholder="Ex :Intelligence artificielle et systÃ¨mes intelligents pour lâ€™aide Ã  la dÃ©cision">
+                            </div>
+                            <div class="field">
+                                <label for="duration">Duration (months )</label>
+                                <input id="duration" name="duration" type="number" min="1" placeholder="Ex: 12">
+                            </div>
+                            <div class="field">
+                                <label for="description">Description<span class="req">*</span></label>
+                                <textarea id="description" name="description" required rows="4"
+                                    placeholder="Objectifs, context,expected results..."></textarea>
+                            </div>
+                            <div class="field">
+                                <label for="budget">Estimated Budget (DA) </label>
+                                <input id="budget" name="budget" min="0" type="text" placeholder="Ex : 1500000 ">
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset class="programs">
+                        <legend>Programs and Calls</legend>
+                        <div>
+                            <div class="field">
+                                <label for="program">Program<span class="req">*</span></label>
+                                <select id="program" name="program" required>
+                                    <option value="">-- Select a program --</option>
+                                    <option>Horizon</option>
+                                    <option>CBHE</option>
+                                    <option>PNR</option>
+                                    <option>CNEPRU</option>
+                                    <option>Erasmus</option>
+                                    <option>Prima</option>
+                                </select>
+                            </div>
+                            <div class="field">
+                                <label for="call">Calls<span class="req">*</span></label>
+                                <select id="call" name="calls" required>
+                                    <option value="">-- Select Call --</option>
+                                    <option>Horizons</option>
+                                    <option>Erasmus</option>
+                                    <option>Prima</option>
+                                </select>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset class="partners">
+                        <legend>Partners</legend>
+                        <div>
+                            <div class="field">
+                                <label for="institution">Institution</label>
+                                <input id="institution" name="institution" type="text" placeholder="Ex : LMCS">
+                            </div>
+                            <div class="field">
+                                <label for="country">Country</label>
+                                <input id="country" name="country" type="text" placeholder="Ex : France">
+                            </div>
+                            <div class="field">
+                                <label for="contact">Contact (e-mail)</label>
+                                <input id="contact" name="contact" placeholder="partner@gmail.com">
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Support Needs</legend>
+                        <div>
+                            <label><input type="checkbox" name="needs" value="writing"> Help with writing
+                                proposal</label>
+                            <label><input type="checkbox" name="needs" value="budget"> Budget preparation</label>
+                            <label><input type="checkbox" name="needs" value="legal"> Legal support</label>
+                            <label><input type="checkbox" name="needs" value="partners"> Partner search</label>
+                            <label for="other">Additional details</label>
+                            <textarea id="other" name="other" rows="3"></textarea>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Documents</legend>
+                        <div>
+                            <div class="field">
+                                <label for="projectdoc">Project Draft<span class="req">*</span></label>
+                                <input id="projectdoc" type="file" accept=".pdf .docx .doc">
+                            </div>
+                            <div class="field">
+                                <label for="otherdoc">Other Documents</label>
+                                <input id="otherdoc" type="file" accept=".pdf .docx .doc">
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <div class="buttons">
+                        <input type="submit" value="Submit" name="action">
+                        <input type="submit" value="Draft" name="action" formnovalidate>
+                    </div>
+
+
+                </div>
+            </form>
+
+        </div>
+
+    </section>
+
+    <section class="projectmembers">
+        <div>
+            <h3>Project Members</h3>
+
+            <div class="add-member">
+                <h4>Add a new member</h4>
+                <form id="addMemberForm">
+                    <div class="member-grid">
+                        <div class="field">
+                            <label for="memberInstitution">Institution<span class="req">*</span></label>
+                            <input id="memberInstitution" name="institution" type="text" required placeholder="Ex : ESI">
+                        </div>
+                        <div class="field">
+                            <label for="memberLab">Department/Laboratory<span class="req">*</span></label>
+                            <input id="memberLab" name="lab" type="text" required placeholder="Ex : LMCS">
+                        </div>
+                        <div class="field">
+                            <label for="memberName">Full Name<span class="req">*</span></label>
+                            <input id="memberName" name="fullname" type="text" required placeholder="Ex : Meriem Tigoulmamine">
+                        </div>
+                        <div class="field">
+                            <label for="memberProf">Profession<span class="req">*</span></label>
+                            <input id="memberProf" name="profession" type="text" required placeholder="Ex : Professor">
+                        </div>
+                        <div class="field">
+                            <label for="memberRole">Role<span class="req">*</span></label>
+                            <input id="memberRole" name="role" type="text" required placeholder="Ex : Project Manager">
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <input type="submit" value="Add to table">
+                    </div>
+                    
+                </form>
+            </div>
+
+            <table id="membersTable">
+                <thead>
+                    <tr>
+                        <th scope="col">Institution</th>
+                        <th scope="col">Department/Laboratory</th>
+                        <th scope="col">Full Name</th>
+                        <th scope="col">Profession</th>
+                        <th scope="col">Role</th>
+                     
+                    </tr>
+                </thead>
+
+                <tbody id="membersBody">
+                    <tr data-group="ESI">
+                        <td rowspan="2" class="institution">ESI</td>
+                        <td>LMCS</td>
+                        <td>Full Name</td>
+                        <td>Professor</td>
+                        <td>Project Manager</td>
+                        
+                    </tr>
+                    <tr data-group="ESI">
+                        <td>LCSI</td>
+                        <td>Full Name</td>
+                        <td>Researcher</td>
+                        <td>Coordinator</td>
+                 
+                    </tr>
+                    <tr data-group="ESTIN">
+                        <td class="institution">ESTIN</td>
+                        <td>LITAN</td>
+                        <td>Full Name</td>
+                        <td>MC classe B</td>
+                        <td>Developer</td>
+                     
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+
+
+    <section>
+        <div class="container">
+            <h2>About Us</h2>
+
+            <p>
+                Our portal provides a centralized space for university researchers
+                to explore international cooperation opportunities, develop project
+                proposals, request guidance, and track their progress from initial
+                idea to final submission.
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div>
+                <h3>International Mobility</h3>
+                <p>Directorate of International Relations</p>
+            </div>
+            <div class="contact">
+                <span>Contact</span>
+                <a href="mailto:internationale_relations@gmail.com">internationale_relations@gmail.com</a>
+            </div>
+            <div>
+                <small>&copy; 2026 University International Mobility</small>
+            </div>
+        </div>
+
+
+    </footer>
+
+    <script src="script.js"></script>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
