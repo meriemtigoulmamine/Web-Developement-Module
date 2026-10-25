@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+<?php
+session_start();
+?>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -18,8 +21,27 @@
                 </a>
                 <div>University | Research | Mobility</div>
                 <div id="researcher-space">
-                    Researcher Space
-                </div>
+
+    <?php if (isset($_SESSION["user_id"]) && !isset($_SESSION["admin_id"])): ?>
+
+        <p>
+            Welcome,
+            <?php echo htmlspecialchars($_SESSION["user_name"]); ?>
+        </p>
+
+        <a href="#project-form">Submit a project</a>
+        <a href="logout.php">Log out</a>
+
+    <?php else: ?>
+
+        <a href="inscription.php">Register</a>
+        <a href="login.php">User Login</a>
+
+    <?php endif; ?>
+
+    <a href="admin/login.php">Admin Login</a>
+
+</div>
         </div>
     </header>
 
@@ -97,10 +119,11 @@
         </div>
     </section>
 
-    <section class="form-section">
+    <?php if (isset($_SESSION["user_id"]) && !isset($_SESSION["admin_id"])): ?>
+    <section class="form-section" id="project-form">
         <div class="form-container">
-            <h1>Project Suggestion</h1>
-            <form method="post" encrypte="multipart/form-data">
+            <h1>Project Suggestion</h1><?php if (isset($_GET["submitted"])): ?><p class="success">Your request was submitted successfully.</p><?php elseif (isset($_GET["error"])): ?><p class="error">There was a problem saving your request. Please check the required fields and try again.</p><?php endif; ?>
+            <form method="post" action="soumetre_projet.php">
                 <div>
                     <fieldset class="project-info">
                         <legend>Info about the project</legend>
@@ -164,39 +187,24 @@
                             </div>
                             <div class="field">
                                 <label for="contact">Contact (e-mail)</label>
-                                <input id="contact" name="contact" placeholder="partner@gmail.com">
+                                <input id="contact" name="contact" type="email" placeholder="partner@gmail.com">
                             </div>
                         </div>
                     </fieldset>
                     <fieldset>
                         <legend>Support Needs</legend>
                         <div>
-                            <label><input type="checkbox" name="needs" value="writing"> Help with writing
+                            <label><input type="checkbox" name="needs[]" value="writing"> Help with writing
                                 proposal</label>
-                            <label><input type="checkbox" name="needs" value="budget"> Budget preparation</label>
-                            <label><input type="checkbox" name="needs" value="legal"> Legal support</label>
-                            <label><input type="checkbox" name="needs" value="partners"> Partner search</label>
+                            <label><input type="checkbox" name="needs[]" value="budget"> Budget preparation</label>
+                            <label><input type="checkbox" name="needs[]" value="legal"> Legal support</label>
+                            <label><input type="checkbox" name="needs[]" value="partners"> Partner search</label>
                             <label for="other">Additional details</label>
                             <textarea id="other" name="other" rows="3"></textarea>
                         </div>
                     </fieldset>
-                    <fieldset>
-                        <legend>Documents</legend>
-                        <div>
-                            <div class="field">
-                                <label for="projectdoc">Project Draft<span class="req">*</span></label>
-                                <input id="projectdoc" type="file" accept=".pdf .docx .doc">
-                            </div>
-                            <div class="field">
-                                <label for="otherdoc">Other Documents</label>
-                                <input id="otherdoc" type="file" accept=".pdf .docx .doc">
-                            </div>
-                        </div>
-                    </fieldset>
-
                     <div class="buttons">
-                        <input type="submit" value="Submit" name="action">
-                        <input type="submit" value="Draft" name="action" formnovalidate>
+                        <input type="submit" value="Submit request" name="submit_project">
                     </div>
 
 
@@ -206,6 +214,10 @@
         </div>
 
     </section>
+
+<?php else: ?>
+    <section class="form-section" id="project-form"><div class="form-container"><h1>Project Suggestion</h1><?php if (isset($_GET["submitted"])): ?><p class="success">Your request was submitted successfully.</p><?php elseif (isset($_GET["error"])): ?><p class="error">There was a problem saving your request. Please check the required fields and try again.</p><?php endif; ?><p>Please register or log in with your ESI email address to access the project form.</p><a class="button" href="inscription.php">Register</a> <a class="button" href="login.php">User login</a></div></section>
+<?php endif; ?>
 
     <section class="projectmembers">
         <div>

@@ -1,34 +1,34 @@
 ﻿$(document).ready(function () {
 
-    var form = $("#addMemberForm");
-    var membersbody = $("#membersBody");
+    let form = $("#addMemberForm");
+    let membersbody = $("#membersBody");
 
 
     form.on("submit", function (event) {
         event.preventDefault();
        
 
-        var institution = $("#memberInstitution").val().trim();
-        var lab = $("#memberLab").val().trim();
-        var fullname = $("#memberName").val().trim();
-        var profession = $("#memberProf").val().trim();
-        var role = $("#memberRole").val().trim();
+        let institution = $("#memberInstitution").val().trim();
+        let lab = $("#memberLab").val().trim();
+        let fullname = $("#memberName").val().trim();
+        let profession = $("#memberProf").val().trim();
+        let role = $("#memberRole").val().trim();
 
         if (!institution || !lab || !fullname || !profession || !role) {
             alert("Please fill in all fields.");
             return;
         }
 
-        var newRow = $("<tr></tr>");
-        var values = [institution, lab, fullname, profession, role];
+        let newRow = $("<tr></tr>");
+        let values = [institution, lab, fullname, profession, role];
 
         values.forEach(function (value) {
-            var cell = $("<td></td>");
+            let cell = $("<td></td>");
             cell.text(value);
             newRow.append(cell);
         });
 
         membersbody.append(newRow);
-        form[0].reset();
+      
     });
 });
