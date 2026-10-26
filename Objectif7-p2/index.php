@@ -2,11 +2,10 @@
 session_start();
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <title>International Mobility</title>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -15,7 +14,7 @@ session_start();
 <body>
     <header class="header">
         <div class="topbar">
-                <a class="brand" href="index.php#home">
+                <a class="brand" href="#home">
                     <img class="icon-logo" src="assets/logo.png" alt="University logo">
 
                     <h3 class="logo">International Mobility</h3>
@@ -30,7 +29,7 @@ session_start();
             <?php echo htmlspecialchars($_SESSION["user_name"]); ?>
         </p>
 
-        <a href="submit_project.php">Submit a project</a>
+        
         <a href="logout.php">Log out</a>
 
     <?php else: ?>
@@ -49,10 +48,10 @@ session_start();
     <nav class="navbar-section">
         <div class="navbar">
             <ul class="menu">
-                <li><a href="#home">Home</a></li>
+                <li><a href="#Home">Home</a></li>
 
                 <li class="sub-menu">
-                    <a href="#opportunities">Calls <span class="arrow-icon">&#9662;</span></a>
+                    <a href="Calls">Calls <span class="arrow-icon">&#9662;</span></a>
                     <ul class="dropdown">
                         <li><a href="#Horizons">Horizons</a></li>
                         <li><a href="#Erasmus">Erasmus</a></li>
@@ -61,7 +60,7 @@ session_start();
                 </li>
 
                 <li class="sub-menu">
-                    <a href="submit_project.php">Project<span class="arrow-icon">&#9662;</span></a>
+                    <a href="project">Project<span class="arrow-icon">&#9662;</span></a>
                     <ul class="dropdown">
                         <li><a href="#horizon">Horizon</a></li>
                         <li><a href="#CBHE">CBHE</a></li>
@@ -72,7 +71,7 @@ session_start();
 
 
                 <li class="sub-menu">
-                    <a href="#opportunities">Mobility<span class="arrow-icon">&#9662;</span></a>
+                    <a href="#mobility">Mobility<span class="arrow-icon">&#9662;</span></a>
                     <ul class="dropdown">
                         <li><a href="national">National</a></li>
                         <li><a href="#erasmus">Erasmus</a></li>
@@ -81,13 +80,14 @@ session_start();
                 </li>
 
                 <li><a href="#about">About</a></li>
-                <li><a href="mailto:internationale_relations@gmail.com">Contact</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a class="nav-cta" href="project_form.php">Submit a project</a></li>
             </ul>
         </div>
     </nav>
 
 
-    <main id="home"><section class="hero-section">
+    <section class="hero-section" id="home">
 
         <div class="hero-container">
             <div class="hero-caption">
@@ -100,19 +100,19 @@ session_start();
             </div>
             <div class="diapo-container">
                 <div class="diapo">
-                    <img src="assets/mobility-research-1.jpg" alt="International doctoral researchers collaborating in a university laboratory">
-                    <img src="assets/mobility-research-2.jpg" alt="Erasmus academic exchange visit at a European university">
-                    <img src="assets/mobility-research-3.jpg" alt="International students working together in a university research lab">
-                    <img src="assets/mobility-research-4.jpg" alt="Researchers collaborating at Erasmus Medical Center">
-                    <img src="assets/mobility-research-1.jpg" alt="International doctoral researchers collaborating in a university laboratory">
+                    <img src="assets/slide1.png" alt="slide 1">
+                    <img src="assets/slide2.png" alt="slide 2">
+                    <img src="assets/slide3.png" alt="slide 3">
+                    <img src="assets/slide4.png" alt="slide 4">
+                    <img src="assets/slide1.png" alt="slide 4">
                 </div>
             </div>
 
         </div>
-    <div class="hero-actions"><a class="button button-primary" href="submit_project.php">Submit a project idea</a><a class="text-link" href="#opportunities">Explore the process ↓</a></div>
-    </section></main>
+    </section>
 
-    <section class="videopresentationsection" id="opportunities">
+
+    <section class="videopresentationsection">
         <div>
             <h2>Project Holder Journey</h2>
             <p>Discover the key steps in the process, from submitting your initial project idea to final submission.</p>
@@ -120,7 +120,7 @@ session_start();
         </div>
     </section>
 
-    <section class="projectmembers">
+<section class="projectmembers">
         <div>
             <h3>Project Members</h3>
 
@@ -199,7 +199,7 @@ session_start();
 
 
 
-    <section id="about">
+    <section>
         <div class="container">
             <h2>About Us</h2>
 

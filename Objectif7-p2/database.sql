@@ -1,38 +1,8 @@
 CREATE DATABASE IF NOT EXISTS TDW CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE TDW;
-
-CREATE TABLE IF NOT EXISTS users (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    fullname VARCHAR(150) NOT NULL,
-    email VARCHAR(255) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
-CREATE TABLE IF NOT EXISTS admins (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(100) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
+CREATE TABLE IF NOT EXISTS users (id INT AUTO_INCREMENT PRIMARY KEY,fullname VARCHAR(150) NOT NULL,email VARCHAR(255) NOT NULL UNIQUE,password VARCHAR(255) NOT NULL,created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
+CREATE TABLE IF NOT EXISTS admins (id INT AUTO_INCREMENT PRIMARY KEY,username VARCHAR(100) NOT NULL UNIQUE,password VARCHAR(255) NOT NULL,created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
 CREATE TABLE IF NOT EXISTS projects (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT NOT NULL,
-    title VARCHAR(255) NOT NULL,
-    duration INT NULL,
-    description TEXT NOT NULL,
-    budget DECIMAL(12,2) NULL,
-    program VARCHAR(100) NOT NULL,
-    calls VARCHAR(100) NOT NULL,
-    institution VARCHAR(255) NULL,
-    country VARCHAR(100) NULL,
-    contact VARCHAR(255) NULL,
-    needs TEXT NULL,
-    other_details TEXT NULL,
-    status ENUM('Submitted', 'Reviewed', 'Rejected', 'Accepted') NOT NULL DEFAULT 'Submitted',
-    admin_notes TEXT NULL,
-    archived_at DATETIME NULL,
-    submitted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    CONSTRAINT fk_project_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
-);
+id INT AUTO_INCREMENT PRIMARY KEY,user_id INT NOT NULL,title VARCHAR(255) NOT NULL,duration INT NULL,description TEXT NOT NULL,budget DECIMAL(12,2) NULL,program VARCHAR(100) NOT NULL,calls VARCHAR(100) NOT NULL,institution VARCHAR(255) NULL,country VARCHAR(100) NULL,contact VARCHAR(255) NULL,needs TEXT NULL,other_details TEXT NULL,
+status ENUM('Submitted','Reviewed','Rejected','Accepted') NOT NULL DEFAULT 'Submitted',remarks TEXT NULL,archived TINYINT(1) NOT NULL DEFAULT 0,submitted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+CONSTRAINT fk_project_user FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE,INDEX idx_projects_date(submitted_at),INDEX idx_projects_archived(archived));

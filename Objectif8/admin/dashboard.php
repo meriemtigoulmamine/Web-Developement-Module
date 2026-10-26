@@ -1,10 +1,53 @@
 <?php
-require_once "common.php";
+session_start();
+if (!isset($_SESSION["admin_id"])) {
+    header("Location: login.php");
+    exit;
+}
 $showArchived = isset($_GET["archived"]) && $_GET["archived"] === "1";
+function h($value) { return htmlspecialchars((string)$value, ENT_QUOTES, "UTF-8"); }
 ?>
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="csrf-token" content="<?=admin_h($_SESSION["csrf_token"])?>"><title>Project submissions</title><link rel="stylesheet" href="admin.css"></head><body>
-<header class="admin-header"><a class="admin-brand" href="dashboard.php">International Mobility <span>Administration</span></a><div class="admin-account">Signed in as <?=admin_h($_SESSION["admin_username"])?> · <a href="logout.php">Log out</a></div></header>
-<main class="admin-main" id="submissionsApp" data-archived="<?=$showArchived?'1':'0'?>"><div class="page-heading"><div><p class="eyebrow">Submission management</p><h1>Project submissions</h1><p>Newest submissions appear first. Updates are saved without reloading the page.</p></div><div class="metric"><strong id="activeCount">—</strong><span>active submissions</span></div></div>
-<nav class="admin-tabs"><a class="<?=$showArchived?'':'selected'?>" href="dashboard.php">Active submissions</a><a class="<?=$showArchived?'selected':''?>" href="dashboard.php?archived=1">Archived</a><a href="users.php">Registered users</a></nav>
-<p id="tableNotice" class="notice" role="status" aria-live="polite" hidden></p><section class="table-card"><div class="table-scroll"><table><thead><tr><th>Date</th><th>Researcher</th><th>Project</th><th>Program / call</th><th>Status &amp; remarks</th><th>Actions</th></tr></thead><tbody id="submissionRows"><tr><td colspan="6" class="empty-state">Loading submissions…</td></tr></tbody></table></div></section><dialog id="editDialog" class="edit-dialog"><form id="editForm"><div class="dialog-heading"><h2>Edit project</h2><button type="button" class="dialog-close" id="closeEditDialog" aria-label="Close">×</button></div><input type="hidden" name="project_id"><div class="edit-grid"><div class="wide"><label>Title *<input name="title" maxlength="255" required></label></div><div><label>Program *<input name="program" required></label></div><div><label>Call *<input name="calls" required></label></div><div><label>Duration (months)<input name="duration" type="number" min="1"></label></div><div><label>Budget (DA)<input name="budget" type="number" min="0" step="0.01"></label></div><div class="wide"><label>Description *<textarea name="description" rows="5" required></textarea></label></div><div><label>Institution<input name="institution"></label></div><div><label>Country<input name="country"></label></div><div class="wide"><label>Partner contact<input name="contact" type="email"></label></div></div><p id="editError" class="alert" hidden></p><div class="edit-actions"><button type="button" class="button button-light" id="cancelEdit">Cancel</button><button class="button button-primary" type="submit">Save changes</button></div></form></dialog></main>
-<script src="submissions.js" defer></script></body></html>
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gestion des soumissions</title>
+    <style>
+        body{font-family:Arial,sans-serif;margin:24px;color:#172b3a;background:#f5f7f9}
+        h1{color:#082c47;margin-bottom:6px}nav{display:flex;gap:16px;flex-wrap:wrap;margin:18px 0}
+        a{color:#075985}nav a{padding:9px 12px;border-radius:4px;background:#e8f0f5;text-decoration:none}
+        nav a.active{background:#082c47;color:white}.table-wrap{overflow-x:auto;background:white}
+        table{border-collapse:collapse;width:100%;min-width:1000px;font-size:14px}
+        th,td{border:1px solid #ccd5dc;padding:10px;text-align:left;vertical-align:top}
+        th{background:#082c47;color:white;white-space:nowrap}
+        tbody tr:hover{background:#f6fafc}.project-title{font-weight:bold;color:#082c47}
+        .muted{color:#647482;font-size:12px;margin-top:4px}
+        textarea{width:150px;min-height:55px;box-sizing:border-box}
+        select,button{padding:7px;margin:2px}button{cursor:pointer;border:0;border-radius:4px;background:#075985;color:white}
+        button.secondary{background:#e6eef3;color:#17384e}button.delete{background:#a33a3a}
+        .actions form{margin:0 0 5px}.status-line{color:#647482;font-size:13px}.notice{padding:9px;background:#e9f7ee}
+        .empty{text-align:center;padding:25px}.description{white-space:pre-wrap;min-width:180px}
+        @media(max-width:700px){body{margin:14px}}
+    </style>
+</head>
+<body data-archived="<?= $showArchived ? "1" : "0" ?>">
+    <h1>Gestion des soumissions</h1>
+    <p>Bienvenue, <?= h($_SESSION["admin_username"] ?? "Administrateur") ?>.</p>
+    <nav aria-label="Navigation administrateur">
+        <a class="<?= !$showArchived ? "active" : "" ?>" href="dashboard.php">Soumissions actives</a>
+        <a class="<?= $showArchived ? "active" : "" ?>" href="dashboard.php?archived=1">Archives</a>
+        <a href="users.php">Gérer les utilisateurs</a>
+        <a href="logout.php">Déconnexion</a>
+    </nav>
+    <h2><?= $showArchived ? "Projets archivés" : "Projets soumis" ?></h2>
+    <p class="status-line"><span id="tableStatus" aria-live="polite">Chargement des soumissions…</span></p>
+    <div class="table-wrap">
+        <table>
+            <thead><tr><th>Date</th><th>Utilisateur</th><th>Projet</th><th>Description</th><th>Programme / appel</th><th>Statut</th><th>Remarques</th><th>Actions</th></tr></thead>
+            <tbody id="projectsBody"><tr><td colspan="8" class="empty">Chargement…</td></tr></tbody>
+        </table>
+    </div>
+    <script src="dashboard.js" defer></script>
+</body>
+</html>

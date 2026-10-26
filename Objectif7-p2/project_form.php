@@ -1,47 +1,26 @@
-<?php
-session_start();
-?>
-<!DOCTYPE html>
+<?php session_start(); ?>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Submit a Project | International Mobility</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Submit a project | International Mobility</title>
     <link rel="stylesheet" href="style.css">
+    <style>.nav-cta { background:#e67e22; border-radius:4px; } .menu > li > a.nav-cta:hover { background:#c75d0b; }</style>
 </head>
-<body class="project-page">
-    <header class="header">
-        <div class="topbar">
-            <a class="brand" href="index.php#home">
-                <img class="icon-logo" src="assets/logo.png" alt="University logo">
-                <h3 class="logo">International Mobility</h3>
-            </a>
-            <div id="researcher-space">
-                <?php if (isset($_SESSION["user_id"]) && !isset($_SESSION["admin_id"])): ?>
-                    <span>Welcome, <?= htmlspecialchars($_SESSION["user_name"]) ?></span>
-                    <a href="logout.php">Log out</a>
-                <?php else: ?>
-                    <a href="inscription.php">Register</a>
-                    <a href="login.php">User Login</a>
-                <?php endif; ?>
-            </div>
-        </div>
-    </header>
-    <nav class="navbar-section">
-        <div class="navbar"><ul class="menu">
-            <li><a href="index.php#home">Home</a></li>
-            <li><a href="index.php#opportunities">Opportunities</a></li>
-            <li><a class="active" href="submit_project.php" aria-current="page">Submit a project</a></li>
-            <li><a href="index.php#about">About</a></li>
-        </ul></div>
-    </nav>
-    <main class="form-section">
-        <div class="page-intro">
-            <p class="eyebrow">Researcher workspace</p>
-            <h1>Share your project idea</h1>
-            <p>Tell us about your proposal and the support you need. Our international relations team will help you take the next step.</p>
-        </div>
-    <?php if (isset($_SESSION["user_id"]) && !isset($_SESSION["admin_id"])): ?>
+<body>
+<header class="header"><div class="topbar">
+    <a class="brand" href="index.php#home"><img class="icon-logo" src="assets/logo.png" alt="University logo"><h3 class="logo">International Mobility</h3></a>
+    <div>University | Research | Mobility</div><div id="researcher-space">
+    <?php if(isset($_SESSION["user_id"]) && !isset($_SESSION["admin_id"])): ?><p>Welcome, <?=htmlspecialchars($_SESSION["user_name"] ?? "")?></p><a href="logout.php">Log out</a><?php else: ?><a href="inscription.php">Register</a> <a href="login.php">User Login</a><?php endif; ?>
+    </div>
+</div></header>
+<nav class="navbar-section"><div class="navbar"><ul class="menu">
+    <li><a href="index.php#home">Home</a></li><li><a class="nav-cta" href="project_form.php">Submit a project</a></li>
+    <li><a href="index.php#about">About</a></li><li><a href="index.php#contact">Contact</a></li>
+</ul></div></nav>
+<main>
+<?php if (isset($_SESSION["user_id"]) && !isset($_SESSION["admin_id"])): ?>
     <section class="form-section" id="project-form">
         <div class="form-container">
             <h1>Project Suggestion</h1><?php if (isset($_GET["submitted"])): ?><p class="success">Your request was submitted successfully.</p><?php elseif (isset($_GET["error"])): ?><p class="error">There was a problem saving your request. Please check the required fields and try again.</p><?php endif; ?>
@@ -53,7 +32,7 @@ session_start();
                             <div class="field">
                                 <label for="title">Project Title<span class="req">*</span></label>
                                 <input id="title" name="title" required type="text"
-                                    placeholder="Ex: AI and intelligent systems for decision support">
+                                    placeholder="Ex :Intelligence artificielle et systÃ¨mes intelligents pour lâ€™aide Ã  la dÃ©cision">
                             </div>
                             <div class="field">
                                 <label for="duration">Duration (months )</label>
@@ -62,7 +41,7 @@ session_start();
                             <div class="field">
                                 <label for="description">Description<span class="req">*</span></label>
                                 <textarea id="description" name="description" required rows="4"
-                                    placeholder="Objectives, context, expected results..."></textarea>
+                                    placeholder="Objectifs, context,expected results..."></textarea>
                             </div>
                             <div class="field">
                                 <label for="budget">Estimated Budget (DA) </label>
@@ -140,12 +119,6 @@ session_start();
 <?php else: ?>
     <section class="form-section" id="project-form"><div class="form-container"><h1>Project Suggestion</h1><?php if (isset($_GET["submitted"])): ?><p class="success">Your request was submitted successfully.</p><?php elseif (isset($_GET["error"])): ?><p class="error">There was a problem saving your request. Please check the required fields and try again.</p><?php endif; ?><p>Please register or log in with your ESI email address to access the project form.</p><a class="button" href="inscription.php">Register</a> <a class="button" href="login.php">User login</a></div></section>
 <?php endif; ?>
-
-    </main>
-    <footer><div class="container">
-        <div><h3>International Mobility</h3><p>Directorate of International Relations</p></div>
-        <div class="contact"><span>Contact</span><a href="mailto:internationale_relations@gmail.com">internationale_relations@gmail.com</a></div>
-        <small>&copy; 2026 University International Mobility</small>
-    </div></footer>
+</main>
 </body>
 </html>

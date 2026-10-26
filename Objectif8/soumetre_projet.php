@@ -25,7 +25,7 @@ $needs = isset($_POST["needs"]) && is_array($_POST["needs"]) ? implode(", ", $_P
 $other_details = trim($_POST["other"] ?? "");
 
 if ($title === "" || $description === "" || $duration === false || ($duration !== null && $duration < 1) || $budget === false || ($budget !== null && $budget < 0)) {
-    header("Location: submit_project.php?error=invalid");
+    header("Location: project_form.php?error=invalid");
     exit;
 }
 
@@ -40,10 +40,10 @@ mysqli_stmt_bind_param($stmt, "isisdsssssss", $user_id, $title, $duration,
 
 if (mysqli_stmt_execute($stmt)) {
     mysqli_stmt_close($stmt);
-    header("Location: submit_project.php?submitted=1");
+    header("Location: project_form.php?submitted=1");
     exit;
 }
 mysqli_stmt_close($stmt);
-header("Location: submit_project.php?error=save");
+header("Location: project_form.php?error=save");
 exit;
 ?>

@@ -21,7 +21,7 @@ if (isset($_POST["login"])) {
             unset($_SESSION["admin_id"], $_SESSION["admin_username"]);
             $_SESSION["user_id"] = (int)$user["id"];
             $_SESSION["user_name"] = $user["fullname"];
-            header("Location: submit_project.php");
+            header("Location: index.php#home");
             exit;
         }
         $message = "Incorrect ESI email or password.";
