@@ -1,0 +1,9 @@
+<?php
+session_start();require_once "../db_connection.php";if(!isset($_SESSION["admin_id"])){header("Location: login.php");exit;}if($_SERVER["REQUEST_METHOD"]!=="POST"){header("Location: dashboard.php");exit;}
+$id=filter_input(INPUT_POST,"id",FILTER_VALIDATE_INT);$action=$_POST["action"]??"";if(!$id){http_response_code(400);exit("Identifiant invalide.");}
+if($action==="delete"){$s=mysqli_prepare($conn,"DELETE FROM projects WHERE id=?");mysqli_stmt_bind_param($s,"i",$id);}
+elseif($action==="archive"||$action==="unarchive"){$v=$action==="archive"?1:0;$s=mysqli_prepare($conn,"UPDATE projects SET archived=? WHERE id=?");mysqli_stmt_bind_param($s,"ii",$v,$id);}
+elseif($action==="edit"){$title=trim($_POST["title"]??"");$description=trim($_POST["description"]??"");$program=trim($_POST["program"]??"");$calls=trim($_POST["calls"]??"");if($title===""||$description===""||$program===""||$calls===""){http_response_code(400);exit("Tous les champs sont obligatoires.");}$s=mysqli_prepare($conn,"UPDATE projects SET title=?,description=?,program=?,calls=? WHERE id=?");mysqli_stmt_bind_param($s,"ssssi",$title,$description,$program,$calls,$id);}
+elseif($action==="save"){$status=$_POST["status"]??"";$allowed=["Submitted","Reviewed","Rejected","Accepted"];$remarks=trim($_POST["remarks"]??"");if(!in_array($status,$allowed,true)){http_response_code(400);exit("Statut invalide.");}$s=mysqli_prepare($conn,"UPDATE projects SET status=?,remarks=? WHERE id=?");mysqli_stmt_bind_param($s,"ssi",$status,$remarks,$id);}
+else{http_response_code(400);exit("Action invalide.");}
+if(!mysqli_stmt_execute($s)){http_response_code(500);exit("Modification impossible.");}mysqli_stmt_close($s);header("Location: dashboard.php?saved=1");exit;
